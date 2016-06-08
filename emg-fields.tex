@@ -1,0 +1,165 @@
+\documentclass[a4paper]{article}
+\usepackage{haus}
+\usepackage{a4wide}
+\title{Visualizing the electromagnetic fields of hairy black holes}
+\begin{document}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+% \section*{Kerr-Newman}
+%
+% We choose a basis $e^a$ which has the following dual basis 
+%
+% \begin{align*}
+%   e_a^\mu &= \left(
+%     \begin{array}{cccc}
+%      \frac{a^2+r^2}{\sqrt{\Delta  \Sigma }} & 0 & 0 & \frac{a}{\sqrt{\Delta  \Sigma }} \\
+%      0 & \sqrt{\frac{\Delta }{\Sigma }} & 0 & 0 \\
+%      0 & 0 & \frac{1}{\sqrt{\Sigma }} & 0 \\
+%      \frac{a \sin \theta}{\sqrt{\Sigma }} & 0 & 0 & \frac{\csc \theta}{\sqrt{\Sigma }} \\
+%     \end{array}
+%     \right).
+% \end{align*}
+%
+% The electromagnetic potential for a Kerr-Newman black hole is
+%
+% \begin{align*}
+% 	A_\mu &= \left\{\frac{Q r}{\Sigma },0,0,-\frac{a Q r \sin ^2\theta}{\Sigma }\right\},
+% \end{align*}
+% and we know that $F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu$, so
+%
+% \begin{align*}
+%   F_{\mu\nu} &=
+% \left(
+% \begin{array}{cccc}
+%  \frac{a^2+r^2}{\sqrt{\Delta  \Sigma }} & 0 & 0 & \frac{a}{\sqrt{\Delta  \Sigma }} \\
+%  0 & \sqrt{\frac{\Delta }{\Sigma }} & 0 & 0 \\
+%  0 & 0 & \frac{1}{\sqrt{\Sigma }} & 0 \\
+%  \frac{a \sin \theta}{\sqrt{\Sigma }} & 0 & 0 & \frac{\csc \theta}{\sqrt{\Sigma }} \\
+% \end{array}
+% \right)
+% \end{align*}
+%
+% From this, we can express the Maxwell tensor in the tetrad above,
+%
+% \begin{align*}
+%   F_{ab} &= F_{\mu\nu}e_a^\mu e_b^\nu \\
+%   &= \left(
+% \begin{array}{cccc}
+%  0 & -\frac{Q \left(\cos (2 \theta ) a^2+a^2+2 r^2\right)}{2 \Sigma ^2} & \frac{a^2 Q r \sin (2 \theta )}{\sqrt{\Delta } \Sigma ^2} & 0 \\
+%  \frac{Q \left(-\sin ^2\theta a^2+a^2+r^2\right)}{\Sigma ^2} & 0 & 0 & 0 \\
+%  -\frac{a^2 Q r \sin (2 \theta )}{\sqrt{\Delta } \Sigma ^2} & 0 & 0 & -\frac{2 a Q r \cos \theta}{\Sigma ^2} \\
+%  0 & 0 & \frac{2 a Q r \cos \theta}{\Sigma ^2} & 0 \\
+% \end{array}
+% \right)
+% \end{align*}
+%
+% From this expression, we can read off the electric field:
+%
+% \begin{align*}
+%   E_idx^i &= \left(-\frac{Q \left(a^2 \cos (2 \theta )+a^2+2 r^2\right)}{2 \Sigma ^2}\right)dr + \left(\frac{a^2 Q r \sin (2 \theta )}{\sqrt{\Delta } \Sigma^2}\right) d\theta,
+% \end{align*}
+%
+% and the magnetic field
+%
+% \begin{align*}
+%   B_idx^i &= \left(\frac{2 a Q r \cos \theta}{\Sigma ^2}\right)dr
+% \end{align*}
+%
+% Some observations regarding these expressions:
+%
+% \begin{itemize}
+%   \item Both $E$ and $B$ vanish when $Q=0$, as expected,
+%   \item When $a=0$, $B$ vanishes and $E$ reduces to the Reissner-Nordström case,
+%   \item Incidentally, in the equatorial plane, $\theta=\pi/2$, $B$ vanishes and $E$ reduces to the Reissner-Nordström case, just as for $a=0$, even if $a\neq0$. I don't see an obvious physical reason for why this happens.
+% \end{itemize}
+
+\section*{Kerr black holes with scalar hair}
+
+As usual, we use the following metric ansatz for KBNsSH
+
+\begin{align*}
+   ds^2 = -e^{F_0}Ndt^2 + e^{2F_1}\left( \frac{dr^2}{N} + r^2d\theta^2 \right) + e^{2F_2}r^2\sin^2\theta \left(d\varphi - Wdt \right)^2.
+\end{align*}
+An obvious choice of tetrad is
+
+\begin{align*}
+  e^0 &\equiv e^{F_0}dt, \\
+  e^1 &\equiv \frac{e^{F_1}}{\sqrt{N}}dr, \\
+  e^2 &\equiv re^{F_1}d\theta, \\
+  e^3 &\equiv r\sin\theta e^{F_2}(d\varphi-Wdt),
+\end{align*}
+whose dual basis is
+
+\begin{align*}
+	 e_0 &\equiv \frac{e^{-{F_0}}}{\sqrt{N}}(dt+Wd\varphi), \\
+	 e_1 &\equiv  e^{-{F_1}} \sqrt{N}dr, \\
+	 e_2 &\equiv \frac{e^{-{F_1}}}{r}d\theta, \\
+	 e_3 &\equiv \frac{e^{-{F_2}} \csc \theta}{r}d\varphi.
+\end{align*}
+
+In order to calculate the stress-energy tensor of the Maxwell field, we use the electromagnetic potential for our hairy black holes
+
+\begin{align*}
+	A_\mu dx^\mu &= \left({A_t}-\frac{\sin \theta {A_\phi} W}{r^2}\right) dt + \sin\theta {A_\phi}d\varphi
+\end{align*}
+and since $F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu$, we find that
+
+\begin{align*}
+  F_{\mu\nu} &= 
+  \scalemath{0.6}{
+  \left(
+\begin{array}{cccc}
+ 0 & -\frac{2 {A_\phi} \sin \theta W}{r^3}+\frac{\sin \theta {A_\phi}_{,r} W}{r^2}-{A_t}_{,r}+\frac{{A_\phi} \sin \theta W_{,r}}{r^2} &
+   \frac{{A_\phi} \cos \theta W}{r^2}+\frac{\sin \theta {A_\phi}_{,\theta} W}{r^2}-{A_t}_{,\theta}+\frac{{A_\phi} \sin \theta W_{,\theta}}{r^2} & 0 \\
+ \frac{2 {A_\phi} \sin \theta W}{r^3}-\frac{\sin \theta {A_\phi}_{,r} W}{r^2}+{A_t}_{,r}-\frac{{A_\phi} \sin \theta W_{,r}}{r^2} & 0 & 0 & \sin \theta
+   {A_\phi}_{,r} \\
+ -\frac{{A_\phi} \cos \theta W}{r^2}-\frac{\sin \theta {A_\phi}_{,\theta} W}{r^2}+{A_t}_{,\theta}-\frac{{A_\phi} \sin \theta W_{,\theta}}{r^2} & 0 & 0 &
+   {A_\phi} \cos \theta+\sin \theta {A_\phi}_{,\theta} \\
+ 0 & -\sin \theta {A_\phi}_{,r} & -{A_\phi} \cos \theta-\sin \theta {A_\phi}_{,\theta} & 0 
+\end{array}
+\right)}
+\end{align*}
+
+From this, we can express the Maxwell tensor in the tetrad given above,
+
+\begin{align*}
+  F_{ab} &= 
+  \scalemath{0.5}{
+  \left(
+\begin{array}{cccc}
+ 0 & \frac{e^{-{F_0}-{F_1}} \left(-{A_t}_{,r} r^3-\left(r^2-1\right) \sin \theta
+   W {A_\phi}_{,r} r+{A_\phi} \sin \theta \left(r W_{,r}-2 W\right)\right)}{r^3} & \frac{e^{-{F_0}-{F_1}} \left(-{A_t}_{,\theta}
+   r^2-\left(r^2-1\right) \sin \theta W {A_\phi}_{,\theta}+{A_\phi} \left(\sin \theta
+   W_{,\theta}-\left(r^2-1\right) \cos \theta W\right)\right)}{r^3 \sqrt{N}} & 0 \\
+ \frac{e^{-{F_0}-{F_1}} \left({A_t}_{,r} r^3+\left(r^2-1\right) \sin \theta W {A_\phi}_{,r} r+{A_\phi} \sin \theta \left(2 W-r W_{,r}\right)\right)}{r^3} & 0 & 0 & \frac{e^{-{F_1}-{F_2}} \sqrt{N} {A_\phi}_{,r}}{r} \\
+ \frac{e^{-{F_0}-{F_1}} \left({A_t}_{,\theta} r^2+\left(r^2-1\right) \sin \theta W {A_\phi}_{,\theta}+{A_\phi} \left(\left(r^2-1\right) \cos \theta W-\sin \theta
+   W_{,\theta}\right)\right)}{r^3 \sqrt{N}} & 0 & 0 & \frac{e^{-{F_1}-{F_2}}
+   \left({A_\phi} \cot \theta+{A_\phi}_{,\theta}\right)}{r^2} \\
+ 0 & -\frac{e^{-{F_1}-{F_2}} \sqrt{N} {A_\phi}_{,r}}{r} & -\frac{e^{-{F_1}-{F_2}} \left({A_\phi} \cot \theta+{A_\phi}_{,\theta}\right)}{r^2} & 0
+\end{array}
+\right)}
+\end{align*}
+
+
+From this expression, we can read off the electric field:
+
+\begin{align*}
+  E_i dx^i &= 
+  \scalemath{0.75}{\left(\frac{e^{-{F_0}-{F_1}} \left(-\left(r^2-1\right) r \sin \theta {A_\phi}_{,r}
+   W+\sin \theta {A_\phi} \left(r W_{,r}-2 W\right)+r^3
+   \left(-{A_t}_{,r}\right)\right)}{r^3}\right)dr} \\
+   &+ \scalemath{0.75}{\left(\frac{e^{-{F_0}-{F_1}} \left(-\left(r^2-1\right)
+   \sin \theta {A_\phi}_{,\theta} W+{A_\phi} \left(\sin \theta W_{,\theta}-\left(r^2-1\right) \cos \theta W\right)+r^2 \left(-{A_t}_{,\theta}\right)\right)}{r^3
+   \sqrt{N}}\right)d\theta}
+\end{align*}
+
+and the magnetic field
+
+\begin{align*}
+  B_idx^i &= \left(-\frac{\left({A_\phi}_{,\theta}+\cot \theta {A_\phi}\right) e^{-{F_1}-{F_2}}}{r^2}\right)dr \\ 
+   &+ \left(\frac{\sqrt{N} {A_\phi}_{,r} e^{-{F_1}-{F_2}}}{r}\right)d\theta
+\end{align*}
+
+\end{document}
+
+
