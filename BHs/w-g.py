@@ -1,6 +1,7 @@
 from scipy import genfromtxt,linspace
 from pylab import *
 
+
 V=0.3
 def plotRH(rh,c):
     inputFile = 'gnuplot-V0='+str(V)+'-rh='+rh+'.dat'
@@ -29,6 +30,6 @@ plot(wExtremal,gExtremal,'g-',ms=2.5)
 xlim(0.64,1)
 ylim(0,2)
 
-xlabel(r'$w$')
-ylabel(r'$g$')
+xlabel(r'$w$',fontsize=18)
+ylabel(r'$g$',fontsize=18)
 savefig('w-g.pdf')

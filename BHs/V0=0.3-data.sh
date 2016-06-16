@@ -29,5 +29,5 @@ do
 done
 math -script convert.m V0=0.3.dat
 
-python w-m.py
+python w-m.py 0.3
 python w-g.py

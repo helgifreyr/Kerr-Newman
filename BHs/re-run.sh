@@ -1,4 +1,3 @@
-# for dir in m=1.0/c2="$1"/w="$2"/"$3"/*; do
 for dir in "$@"; do
   if [ ! -f $dir/tmp.txt ]; # comment out this line to run on already run folders
   then # and this
